@@ -1,14 +1,8 @@
 import type { RouterClient } from '@orpc/server';
-import { o, protectedProcedure, publicProcedure } from '../lib/orpc';
+import { o } from '../lib/orpc';
 import { todoRouter } from './todo';
 
 export const appRouter = o.router({
-  privateData: protectedProcedure.handler(({ context }) => {
-    return {
-      message: 'This is private',
-      user: context.session?.user,
-    };
-  }),
   todo: todoRouter,
 });
 
