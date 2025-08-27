@@ -3,9 +3,6 @@ import { o, protectedProcedure, publicProcedure } from '../lib/orpc';
 import { todoRouter } from './todo';
 
 export const appRouter = o.router({
-  healthCheck: o.handler(() => {
-    return 'OK';
-  }),
   privateData: protectedProcedure.handler(({ context }) => {
     return {
       message: 'This is private',
