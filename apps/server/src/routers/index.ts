@@ -1,8 +1,8 @@
 import type { RouterClient } from '@orpc/server';
-import { protectedProcedure, publicProcedure } from '../lib/orpc';
+import { o, protectedProcedure, publicProcedure } from '../lib/orpc';
 import { todoRouter } from './todo';
 
-export const appRouter = {
+export const appRouter = o.router({
   healthCheck: publicProcedure.handler(() => {
     return 'OK';
   }),
@@ -13,7 +13,7 @@ export const appRouter = {
     };
   }),
   todo: todoRouter,
-}
+});
 
 export type AppRouter = typeof appRouter;
 export type AppRouterClient = RouterClient<typeof appRouter>;
