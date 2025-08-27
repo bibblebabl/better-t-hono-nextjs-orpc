@@ -28,9 +28,11 @@
       "semicolons": "asNeeded"
     }
   },
-  "lint": {
-    "suspicious": {
-      "noConsole": "off"
+  "linter": {
+    "rules": {
+      "suspicious": {
+        "noConsole": "off"
+      }
     }
   }
 }
