@@ -1,14 +1,12 @@
 "use client"
 
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
+import { useMutation, useQuery } from "@tanstack/react-query"
 import { Loader2, Trash2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
-import { orpc } from "@/utils/orpc"
+import { orpc, queryClient } from "@/utils/orpc"
 
 export function TodoList() {
-  const queryClient = useQueryClient()
-
   const todos = useQuery(orpc.todo.getAll.queryOptions())
 
   const toggleMutation = useMutation(
